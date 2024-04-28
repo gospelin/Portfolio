@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+    {% block css%}
+        <link rel="stylesheet" href="/static/css/login-style.css">
+    {%endblock%}
+
+    {% block content %}
+
+        <div class="container">
+            <h1>Login</h1>
+            <form action="process_login.php" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <input type="submit" value="Login">
+            </form>
+            <p>Don't have an account? <a href="{{ url_for('register')}}" id="register">Register here</a>.</p>
+        </div>
+
+    {% endblock content %}

@@ -1,0 +1,54 @@
+{%extends "layout.html" %}
+
+{%block css %}
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+{% endblock css %}
+
+
+{% block content %}
+
+    <h2>Students Class of 2021</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>State</th>
+                <th>L.G.A</th>
+                <th>Course</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in enrollData %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    {% for value in data.values() %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+
+{% endblock content %}
