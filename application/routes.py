@@ -24,6 +24,11 @@ def contact():
     return render_template("contact.html", login=True)
 
 
+@app.route("/register")
+def register():
+    return render_template("register.html", login=True)
+
+
 @app.route("/login")
 def login():
     return render_template("login.html", login=False)
