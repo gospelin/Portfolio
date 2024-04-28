@@ -1,0 +1,50 @@
+/* Reset styles */
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+h1 {
+	font-size: 36px;
+	margin-bottom: 20px;
+	color: #333;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	grid-gap: 20px;
+}
+
+.item {
+	position: relative;
+	overflow: hidden;
+}
+
+.item img {
+	width: 100%;
+	height: auto;
+	transition: transform 0.3s ease;
+}
+
+.item:hover img {
+	transform: scale(1.1);
+}
+
+.description {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 10px;
+	color: #fff;
+	transition: opacity 0.3s ease;
+	opacity: 0;
+}
+
+.item:hover .description {
+	opacity: 1;
+}
