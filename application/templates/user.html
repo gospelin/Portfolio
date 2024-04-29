@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>User</h1>
+    {% for user in users %}
+    <p>Here is your user profile:</p>
+    <p>Welcome, {{ user.first_name }} {{user.last_name}} !</p>
+
+    <p>Your email is: {{user.email}}</p>
+    <p>Your id is {{ user.user_id }}</p>
+    {%endfor%}
+    <p><a href="{{ url_for('index') }}">Home</a></p>
+
+
+
+
+{% endblock content %}
