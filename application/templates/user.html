@@ -6,10 +6,10 @@
     <p>Here is your user profile:</p>
     <p>Welcome, {{ user.first_name }} {{user.last_name}} !</p>
 
-    <p>Your email is: {{user.email}}</p>
-    <p>Your id is {{ user.user_id }}</p>
+    <p>Your State is: {{user.state}} L.G.A:  {{user.phone_number}}</p>
+    <p>Your id is {{ user.user_course_of_study }}</p>
     {%endfor%}
-    <p><a href="{{ url_for('index') }}">Home</a></p>
+
 
 
 

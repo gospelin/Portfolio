@@ -38,20 +38,31 @@ def enroll():
     return render_template("enroll.html", login=True, enrollData=enrollData )
 
 class User(db.Document):
-    user_id = db.StringField( unique = True )
+    user_id = db.IntField(unique=False, null=True)
     first_name = db.StringField( max_length = 50 )
     last_name = db.StringField( max_length = 50 )
-    email = db.StringField( max_length = 30 )
-    password = db.StringField( max_length = 30 )
+    gender = db.StringField( max_length = 10 )
+    date_of_birth = db.StringField(max_length=10)
+    state = db.StringField(max_length=15)
+    local_government_area = db.StringField(max_length=20)
+    course_of_study = db.StringField(max_length=20)
+    phone_number = db.StringField(max_length=15)
 
 @app.route("/user")
 def user():
-    #User(user_id = "1", first_name = "John", last_name = "Doe", email = "johndoe@example.com", password = "password").save()
-    #User(user_id = "2", first_name = "Jane", last_name = "Doe", email = "janedoe@example.com", password = "admin123").save()
+    User(
+        first_name="Brianna",
+        last_name="Howard",
+        gender="Female",
+        date_of_birth="1977-09-29",
+        state="Zamfara",
+        local_government_area="Bungudu",
+        course_of_study="Law",
+        phone_number="+2347222406665",
+    ).save()
     users = User.objects.all()
     return render_template("user.html", login=True, users=users)
 
 @app.route("/login")
 def login():
     return render_template("login.html", login=False)
-
