@@ -1,6 +1,7 @@
-from application import app, db
+from application import app
 from flask import render_template
 import json
+from application.models import User
 
 
 @app.route("/")
@@ -36,17 +37,6 @@ def enroll():
         enrollData = json.load(data)
 
     return render_template("enroll.html", login=True, enrollData=enrollData )
-
-class User(db.Document):
-    user_id = db.IntField(unique=False, null=True)
-    first_name = db.StringField( max_length = 50 )
-    last_name = db.StringField( max_length = 50 )
-    gender = db.StringField( max_length = 10 )
-    date_of_birth = db.StringField(max_length=10)
-    state = db.StringField(max_length=15)
-    local_government_area = db.StringField(max_length=20)
-    course_of_study = db.StringField(max_length=20)
-    phone_number = db.StringField(max_length=15)
 
 @app.route("/user")
 def user():
