@@ -69,6 +69,16 @@ nav ul li a:hover::before {
 	transform: scaleX(1);
 }
 
+.error-msg {
+	color: red;
+	margin-bottom: 10px;
+}
+
+.success-msg {
+	color: green;
+	margin-bottom: 10px;
+}
+
 footer {
 	background-color: #333;
 	color: #fff;

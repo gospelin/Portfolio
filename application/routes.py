@@ -1,7 +1,8 @@
 from application import app
-from flask import render_template
+from flask import flash, redirect, render_template, request
 import json
 from application.models import User
+from application.forms import LoginForm, RegisterForm
 
 
 @app.route("/")
@@ -53,6 +54,15 @@ def user():
     users = User.objects.all()
     return render_template("user.html", login=True, users=users)
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html", login=False)
+    form = LoginForm()
+    
+    if form.validate_on_submit():
+        #if form.email.data == "gospelin.gi@gmail.com":
+        if request.form.get("email") == "gospelin.gi@gmail.com":
+            flash("You have been logged in!", "success-msg")
+            return redirect("/index")
+        else:
+            flash("Login Unsuccessful. Please check email and password", "error-msg")
+    return render_template("login.html", title="Login", form=form, login=True)
